@@ -135,7 +135,43 @@ function addPoke(nb) {
 }
 
 
+// Fonction de recherche, car je serai le meilleur dresseur !
 
+
+
+// Si on veut utiliser le bouton de recherche, et pas une recherche dynamique.
+// const formRecherche = document.querySelector('form');
+// formRecherche.addEventListener('submit', (e) => {
+//       e.preventDefault();
+//       recherche();
+// })
+
+searchInput.addEventListener('keyup', recherche);
+
+function recherche () {
+      if(index < 151) {
+            addPoke(130);
+      }
+
+      let filter, allLi, titleValue, allTitles;
+      filter = searchInput.value.toUpperCase();
+      allLi = document.querySelectorAll('li');
+      allTitles = document.querySelectorAll('li > h5');
+
+      for(i = 0; i < allLi.length; i++) {
+
+            titleValue = allTitles[i].innerText;
+            
+            if(titleValue.toUpperCase().indexOf(filter) > -1) {
+                  allLi[i].style.display = "flex";
+            } else {
+                  allLi[i].style.display = "none";
+            }
+
+      }
+
+
+}
 
 
 
